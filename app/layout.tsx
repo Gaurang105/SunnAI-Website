@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'SunnAI - AI-Powered Voice-to-Text Assistant',
@@ -52,6 +53,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-white text-swiss-900 selection:bg-accent-100 selection:text-accent-700">
         {children}
+        <Analytics />
       </body>
     </html>
   )
