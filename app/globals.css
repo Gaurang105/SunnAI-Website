@@ -1,0 +1,284 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-mono: Monaco, SF Mono, Consolas, monospace;
+
+  --color-swiss-50: #ffffff;
+  --color-swiss-100: #fafafa;
+  --color-swiss-200: #f5f5f5;
+  --color-swiss-300: #e5e5e5;
+  --color-swiss-400: #d4d4d4;
+  --color-swiss-500: #a3a3a3;
+  --color-swiss-600: #737373;
+  --color-swiss-700: #525252;
+  --color-swiss-800: #262626;
+  --color-swiss-900: #171717;
+  --color-swiss-950: #000000;
+
+  --color-accent-50: #fef2f2;
+  --color-accent-100: #fee2e2;
+  --color-accent-200: #fecaca;
+  --color-accent-300: #fca5a5;
+  --color-accent-400: #f87171;
+  --color-accent-500: #ef4444;
+  --color-accent-600: #dc2626;
+  --color-accent-700: #b91c1c;
+  --color-accent-800: #991b1b;
+  --color-accent-900: #7f1d1d;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-xs--letter-spacing: 0.05em;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-sm--letter-spacing: 0.025em;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-base--letter-spacing: 0;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-lg--letter-spacing: -0.025em;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-xl--letter-spacing: -0.025em;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-2xl--letter-spacing: -0.025em;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-3xl--letter-spacing: -0.025em;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-4xl--letter-spacing: -0.025em;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.16;
+  --text-5xl--letter-spacing: -0.025em;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.16;
+  --text-6xl--letter-spacing: -0.025em;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1.16;
+  --text-7xl--letter-spacing: -0.025em;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1.16;
+  --text-8xl--letter-spacing: -0.025em;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1.16;
+  --text-9xl--letter-spacing: -0.025em;
+
+  --container-8xl: 88rem;
+  --container-9xl: 96rem;
+
+  --grid-template-columns-14: repeat(14, minmax(0, 1fr));
+  --grid-template-columns-16: repeat(16, minmax(0, 1fr));
+  --grid-template-columns-18: repeat(18, minmax(0, 1fr));
+  --grid-template-columns-20: repeat(20, minmax(0, 1fr));
+
+  --aspect-4\/3: 4 / 3;
+  --aspect-3\/2: 3 / 2;
+  --aspect-5\/4: 5 / 4;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/* Swiss Design Components */
+@utility swiss-grid {
+  /* Swiss Grid System */
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    gap: 3rem;
+  }
+}
+@utility swiss-button {
+  /* Swiss Button System */
+  @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium tracking-wide text-swiss-50 bg-swiss-950 border border-swiss-950 transition-all duration-200 hover:bg-swiss-50 hover:text-swiss-950 focus:outline-hidden focus:ring-2 focus:ring-swiss-950 focus:ring-offset-2 focus:ring-offset-swiss-50;
+  font-feature-settings: 'kern' 1;
+}
+@utility swiss-button-outline {
+  @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium tracking-wide text-swiss-950 bg-transparent border border-swiss-950 transition-all duration-200 hover:bg-swiss-950 hover:text-swiss-50 focus:outline-hidden focus:ring-2 focus:ring-swiss-950 focus:ring-offset-2 focus:ring-offset-swiss-50;
+  font-feature-settings: 'kern' 1;
+}
+@utility swiss-button-minimal {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide text-swiss-950 bg-transparent border border-swiss-300 transition-all duration-200 hover:border-swiss-950 focus:outline-hidden focus:ring-1 focus:ring-swiss-950 focus:ring-offset-1;
+  font-feature-settings: 'kern' 1;
+}
+@utility swiss-section {
+  /* Swiss Section System */
+  @apply py-22 lg:py-30;
+}
+@utility swiss-section-compact {
+  @apply py-15 lg:py-22;
+}
+@utility swiss-container {
+  @apply mx-auto max-w-8xl px-6 lg:px-8;
+}
+@utility swiss-overline {
+  /* Swiss Typography Components */
+  @apply inline-flex items-center px-4 py-2 bg-swiss-200 text-swiss-950 text-xs font-bold tracking-widest uppercase;
+  letter-spacing: 0.15em;
+}
+@utility swiss-label {
+  @apply text-xs font-bold tracking-widest uppercase text-swiss-600;
+  letter-spacing: 0.1em;
+}
+@utility swiss-card {
+  /* Swiss Cards */
+  @apply bg-swiss-50 border border-swiss-300 p-8 transition-all duration-300 hover:border-swiss-950;
+}
+@utility swiss-card-minimal {
+  @apply bg-swiss-50 border-l-4 border-l-swiss-950 pl-6 py-4;
+}
+@utility swiss-aspect-square {
+  /* Swiss Layout Utilities */
+  aspect-ratio: 1 / 1;
+}
+@utility swiss-aspect-landscape {
+  aspect-ratio: 4 / 3;
+}
+@utility swiss-aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+@utility swiss-square {
+  /* Swiss Geometric Elements */
+  @apply w-4 h-4 bg-swiss-950;
+}
+@utility swiss-line-horizontal {
+  @apply w-full h-px bg-swiss-300;
+}
+@utility swiss-line-vertical {
+  @apply w-px h-full bg-swiss-300;
+}
+@utility swiss-stack {
+  /* Swiss Spacing System */
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+}
+@utility swiss-stack-lg {
+  & > * + * {
+    margin-top: 2rem;
+  }
+}
+@utility swiss-stack-xl {
+  & > * + * {
+    margin-top: 3rem;
+  }
+}
+
+/* Swiss Design Animations */
+@utility animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+@utility animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+@utility animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+@utility animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+@utility swiss-hover-lift {
+  /* Swiss hover effects */
+  @apply transition-transform duration-200 hover:-translate-y-1;
+}
+@utility swiss-hover-accent {
+  @apply transition-colors duration-200 hover:text-accent-500;
+}
+
+/* Swiss Design Typography */
+@layer base {
+  html {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  
+  body {
+    @apply text-swiss-900 bg-swiss-50;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  
+  p {
+    line-height: 1.6;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  
+  /* Swiss Design emphasis on legibility */
+  strong, b {
+    font-weight: 700;
+  }
+  
+  em, i {
+    font-style: italic;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+} 
