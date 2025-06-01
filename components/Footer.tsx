@@ -11,13 +11,13 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
-                <Image
-                  src="/icon.png"
-                  alt="SunnAI Logo"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
+              <Image
+                src="/icon.png"
+                alt="SunnAI Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
                 {/* Swiss geometric accent */}
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-accent-500" />
               </div>
@@ -29,9 +29,9 @@ export default function Footer() {
             <div className="mb-8">
               <div className="w-16 h-1 bg-swiss-950 mb-6" />
               <p className="text-swiss-700 leading-relaxed max-w-md">
-                Transform your voice into text instantly with the power of AI. 
+              Transform your voice into text instantly with the power of AI. 
                 Built for macOS.
-              </p>
+            </p>
             </div>
             
             <div className="text-xs text-swiss-600 tracking-wide">
@@ -78,7 +78,7 @@ export default function Footer() {
                 Send Feedback
               </a>
             </div>
-
+            
             {/* Swiss Social Links */}
             <div className="mb-8">
               <div className="swiss-label mb-4">

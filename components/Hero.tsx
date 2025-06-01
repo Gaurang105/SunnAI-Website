@@ -55,9 +55,9 @@ export default function Hero() {
               <div className="mb-12">
                 <div className="w-16 h-1 bg-swiss-950 mb-6" />
                 <p className="text-xl lg:text-2xl text-swiss-700 leading-relaxed max-w-2xl">
-                  Seamlessly integrate speech-to-text into your macOS workflow. 
-                  Simply speak, and watch your words appear exactly where you need them.
-                </p>
+                Seamlessly integrate speech-to-text into your macOS workflow. 
+                Simply speak, and watch your words appear exactly where you need them.
+              </p>
               </div>
 
               {/* Swiss Button System */}
@@ -105,14 +105,14 @@ export default function Hero() {
               {/* Swiss Card Design */}
               <div className="relative bg-swiss-50 border-2 border-swiss-950 p-2 transform transition-transform duration-500 hover:scale-105">
                 <div className="bg-swiss-200 p-1">
-                  <Image
-                    src="/preview.png"
-                    alt="SunnAI Application Preview"
-                    width={600}
-                    height={400}
+                <Image
+                  src="/preview.png"
+                  alt="SunnAI Application Preview"
+                  width={600}
+                  height={400}
                     className="w-full h-auto border border-swiss-300"
-                    priority
-                  />
+                  priority
+                />
                 </div>
               </div>
             </div>
